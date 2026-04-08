@@ -14,6 +14,8 @@
 ├─ index.html     # Разметка всех секций лендинга
 ├─ styles.css     # Стили, адаптив, анимации
 ├─ script.js      # Reveal-анимации и обработка формы
+├─ privacy-policy.html         # Политика конфиденциальности
+├─ personal-data-consent.html  # Согласие на обработку ПДн
 └─ README.md      # Документация
 ```
 

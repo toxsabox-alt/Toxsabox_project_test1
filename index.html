@@ -185,9 +185,18 @@
                 placeholder="Кратко опишите задачу"
               ></textarea>
             </label>
+            <label class="consent">
+              <input type="checkbox" name="consent" required />
+              <span>
+                Я подтверждаю согласие с
+                <a href="privacy-policy.html" target="_blank" rel="noopener noreferrer">Политикой конфиденциальности</a>
+                и
+                <a href="personal-data-consent.html" target="_blank" rel="noopener noreferrer">Согласием на обработку персональных данных</a>.
+              </span>
+            </label>
             <button type="submit" class="btn">Отправить заявку</button>
             <p class="form-note">
-              Нажимая кнопку, вы соглашаетесь на обработку персональных данных.
+              Без установленной галочки заявка не отправляется.
             </p>
             <p id="formStatus" class="form-status" aria-live="polite"></p>
           </form>
@@ -198,7 +207,11 @@
     <footer class="footer">
       <div class="container footer__inner">
         <p>© 2026 DigitalArchitect. Все права защищены.</p>
-        <a href="#hero">Наверх ↑</a>
+        <div class="footer__links">
+          <a href="privacy-policy.html">Политика конфиденциальности</a>
+          <a href="personal-data-consent.html">Согласие на обработку ПДн</a>
+          <a href="#hero">Наверх ↑</a>
+        </div>
       </div>
     </footer>
 

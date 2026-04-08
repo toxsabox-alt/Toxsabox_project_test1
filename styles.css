@@ -395,6 +395,45 @@ h2 {
   color: var(--muted);
 }
 
+.form-note a {
+  color: var(--accent);
+}
+
+.consent {
+  display: flex !important;
+  align-items: flex-start;
+  gap: 0.6rem;
+  font-size: 0.86rem !important;
+  color: #d5e2ff;
+}
+
+.consent input[type="checkbox"] {
+  width: 17px;
+  height: 17px;
+  margin-top: 0.12rem;
+  accent-color: var(--primary);
+}
+
+.consent span {
+  line-height: 1.5;
+}
+
+.consent a {
+  color: var(--accent);
+}
+
+.consent--error {
+  border: 1px solid rgba(255, 111, 145, 0.9);
+  border-radius: 10px;
+  padding: 0.5rem 0.6rem;
+  background: rgba(255, 111, 145, 0.08);
+}
+
+.consent--error input[type="checkbox"] {
+  outline: 2px solid rgba(255, 111, 145, 0.95);
+  outline-offset: 2px;
+}
+
 .form-status {
   margin: 0.15rem 0 0;
   min-height: 1.2rem;
@@ -431,6 +470,40 @@ h2 {
 .footer a {
   color: var(--accent);
   text-decoration: none;
+}
+
+.footer__links {
+  display: flex;
+  gap: 1rem;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+.legal {
+  padding: 4rem 0 5rem;
+}
+
+.legal__box {
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+  padding: 1.2rem;
+}
+
+.legal__box h1 {
+  margin-bottom: 0.85rem;
+}
+
+.legal__box h2 {
+  margin-top: 1.35rem;
+  margin-bottom: 0.55rem;
+  font-size: 1.22rem;
+}
+
+.legal__box p,
+.legal__box li {
+  color: #d2def9;
 }
 
 .reveal {

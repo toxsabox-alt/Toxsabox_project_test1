@@ -16,6 +16,8 @@ revealElements.forEach((element) => observer.observe(element));
 
 const leadForm = document.getElementById("leadForm");
 const formStatus = document.getElementById("formStatus");
+const consentCheckbox = leadForm.querySelector('input[name="consent"]');
+const consentLabel = consentCheckbox.closest(".consent");
 
 const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 
@@ -32,6 +34,16 @@ function normalizePhone(phone) {
   return phone.replace(/[^\d+]/g, "");
 }
 
+function setConsentErrorState(isError) {
+  consentLabel.classList.toggle("consent--error", isError);
+}
+
+consentCheckbox.addEventListener("change", () => {
+  if (consentCheckbox.checked) {
+    setConsentErrorState(false);
+  }
+});
+
 leadForm.addEventListener("submit", (event) => {
   event.preventDefault();
 
@@ -40,6 +52,7 @@ leadForm.addEventListener("submit", (event) => {
   const phone = normalizePhone(String(formData.get("phone") || "").trim());
   const email = String(formData.get("email") || "").trim().toLowerCase();
   const message = String(formData.get("message") || "").trim();
+  const consentAccepted = formData.get("consent") === "on";
 
   if (!name || name.length < 2) {
     setStatus("Укажите имя (минимум 2 символа).", "error");
@@ -55,6 +68,14 @@ leadForm.addEventListener("submit", (event) => {
     setStatus("Укажите корректный email.", "error");
     return;
   }
+
+  if (!consentAccepted) {
+    setConsentErrorState(true);
+    setStatus("Необходимо подтвердить согласие с Политикой и обработкой ПДн.", "error");
+    return;
+  }
+
+  setConsentErrorState(false);
 
   // Демонстрационная отправка: сохраняем заявку локально.
   const payload = {
